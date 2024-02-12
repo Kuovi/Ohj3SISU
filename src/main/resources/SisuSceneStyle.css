@@ -1,0 +1,205 @@
+/*
+ * Stylesheet for the GUI of the program.
+*/
+
+/* 
+    Created on : 1 May 2022, 22:15:25
+    Last edited on: 6 May 2022 21:17
+    Author     : Pyry Lehtinen
+*/
+
+.root {
+    -fx-background-color: #378a80;
+}
+/* 
+ * Buttons
+ */
+
+.button {
+    -fx-background-color: white;
+    -fx-background-insets: 1;
+    -fx-background-radius: 5;
+}
+
+/* 
+ * Tooltip
+ */
+
+.tooltip {
+    -fx-text-fill: black;
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-font-size: 12;
+}
+
+/* 
+ * Table-view and sublevels.
+ */
+
+
+/* Remove background even when focused on the view */
+.table-view {
+   -fx-background-color: transparent;
+}
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    
+    -fx-background-color: white
+}
+
+.table-view *.column-header{
+    -fx-background-color: linear-gradient(#378a80 0%, #FFFFFF 100%);
+    -fx-background-insets: 1;
+    -fx-border-color: transparent;
+    
+}
+
+/*Stylings of the srollers to make them look pretty */
+
+.table-view *.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.table-view *.scroll-bar:horizontal, .tree-view *.scroll-bar:vertical{
+    -fx-background-color:transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.table-view *.increment-button, .decrement-button {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.table-view *.scroll-bar:horizontal .track,
+.table-view *.scroll-bar:vertical .track{
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.table-view *.scroll-bar:horizontal .thumb,
+.table-view *.scroll-bar:vertical .thumb {
+    -fx-background-color: #378a80;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+}
+ /* Cell stylings */
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #d3edea;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0; /* 0 */
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #ffffff;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0; /* 0 */
+}
+
+.table-row-cell:selected {
+    -fx-font-weight: bold ;
+    -fx-background-color: #edc48e;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+.table-row-cell:focused {
+    -fx-font-weight: bold ;
+    -fx-background-color: #edc48e;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+/* Had a weird bug where the text color changed to white for some random cells 
+ * when changing back to the scene from another. This should fix it. */
+.table-view .text, 
+.table-row-cell .text,
+.table-view .table-row-cell .text,
+.table-view:selected .text,
+.table-view:focused .text {
+    -fx-fill: black ;
+}
+
+/* 
+ * TreeView and sub-levels.
+ */
+
+.tree-view {
+    -fx-background-insets: 1;  
+}
+
+/* 
+ * Change the scrolls to mimic the ones in the table.
+ */
+
+.tree-view *.scroll-pane {
+    -fx-background-color: white;
+}
+
+.tree-view *.scroll-bar:horizontal, .tree-view *.scroll-bar:vertical{
+    -fx-background-color:white;
+}
+
+.tree-view *.increment-button, .decrement-button {
+    -fx-background-color: white;
+    -fx-border-color: white;
+}
+
+.tree-view *.scroll-bar:horizontal .track,
+.tree-view *.scroll-bar:vertical .track{
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-background-radius: 5;
+}
+
+.tree-view *.scroll-bar:horizontal .thumb,
+.tree-view *.scroll-bar:vertical .thumb {
+    -fx-background-color: #378a80;
+    -fx-background-radius: 5;
+}
+
+/* 
+ * Small stylings for a neater look.
+ */
+.tree-cell:sub-tree-item {
+    -fx-padding: 0.25em ;
+}
+/* Same as in TableView. Just in case. */
+.tree-view .text, 
+.tree-cell .text,
+.tree-cell:sub-tree-item .text,
+.tree-view .tree-cell .text,
+.tree-cell:selected .text,
+.tree-cell:focused .text {
+    -fx-fill: black ;
+}
+.tree-view, .tree-cell {
+    -fx-background-color: #d3edea ;
+    -fx-text-fill: black ;
+    -fx-padding: 0.5em 0em 0.5em 0em ;
+}
+
+.tree-cell:selected {
+    -fx-font-weight: bold ;
+}
+
+/* This way we dont lose the arrow when selecting a tree-item. */
+.tree-cell .tree-disclosure-node .arrow {
+    -fx-shape: "M 0 0 L 10 5 L 0 10 L 0 8 L 8 5 L 0 2 Z";
+    -fx-background-color: black;
+    -fx-background-image: null; /* url(images/sisuttaa.png);*/
+}
